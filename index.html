@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Genereer Deelnemerslijst</title>
+  <meta name="author" content="Shan Carter">
+  <!-- Date: 2010-08-26 -->
+  <link rel="stylesheet" href="css/converter.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+  <script src="js/jquery.js" charset="utf-8"></script>
+  <script src="js/CSVParser.js" charset="utf-8"></script>
+  <script src="js/DataGridRenderer.js" charset="utf-8"></script>
+  <script src="js/converter.js" charset="utf-8"></script>
+  <script src="js/Controller.js" charset="utf-8"></script>
+  <script src="js/jquery/jquery-1.7.1.min.js"></script>
+  <script src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+  <script src="js/jspdf.min.js"></script>
+  <script src="js/cocd.js"></script>
+
+</head>
+<body>
+  <div id='base'>
+    <div id='header'>
+      <div id="description">
+        <h1>Genereer Deelnemerslijst</h1>
+        <p>Plak de Excel data in de bovenste kolom en laat de data naar JSON omzetten.</p>
+      </div>
+      <div id='settings'>
+        <input id="cursuscode" placeholder="cursuscode"/>
+        <input id="cursusnaam" placeholder="cursusnaam"/>
+        <input id="cursusdata" placeholder="cursusdata"/>
+        <h3>Druk vervolgens <a href="javascript:demoImages()" class="button">hier</a>.</h3>
+        <form id='settingsForm'>
+           <p hidden>Delimiter:
+
+             <label><input class="settingsElement" type="radio" name="delimiter" id='delimiterAuto'   value="auto" checked/> Auto</label>
+             <label><input class="settingsElement" type="radio" name="delimiter" id='delimiterComma'  value="comma" /> Comma</label>
+             <label><input class="settingsElement" type="radio" name="delimiter" id='delimiterTab'    value="tab" /> Tab</label>
+            </p>
+          <p hidden>Decimal Sign:
+
+             <label><input class="settingsElement" type="radio" name="decimal" id='decimalDot'   value="dot" checked/> Dot</label>
+             <label><input class="settingsElement" type="radio" name="decimal" id='decimalComma'  value="comma" /> Comma</label>
+            </p>
+          <p hidden><label><input class="settingsElement" type="checkbox" name="" value="" id="headersProvidedCB" checked /> First row is the header</label></p>
+          <div hidden class="settingsGroup">
+            <p>Transform: <label><input class="settingsElement" type="radio" name="headerModifications" value="downcase" id='headersDowncase' /> downcase</label>
+            <label><input class="settingsElement" type="radio" name="headerModifications" id='headersUpcase' value="upcase" /> upcase</label>
+            <label><input class="settingsElement" type="radio" name="headerModifications" id='headersNoTransform' value="none" checked /> none</label></p>
+          </div>
+
+          <p hidden><label><input class="settingsElement" type="checkbox" name="some_name" value="" id="includeWhiteSpaceCB" checked /> Include white space in output</label></p>
+          <div hidden class="settingsGroup">
+            <p>Indent with: <label><input class="settingsElement" type="radio" name="indentType" value="tabs" id='includeWhiteSpaceTabs'/> tabs</label> <label><input class="settingsElement" type="radio" name="indentType" value="spaces" id='includeWhiteSpaceSpaces' checked/> spaces</label></p>
+          </div>
+
+
+        </form>
+
+
+      </div>
+    </div>
+
+
+    <div id='converter' class=''>
+
+    </div>
+
+  </div>
+
+
+</body>
+</html>
